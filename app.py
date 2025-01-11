@@ -62,7 +62,7 @@ class ScreenRecorder:
             if self._minutes == 60:
                 self._hours += 1
                 self._minutes = 0
-            self._TimeCounter_Label.config(text=f'{self._hours:02}:{self._minutes:02}:{self._seconds:02}')
+            self._TimeCounter_Label.config(text=f'Recording Duration: {self._hours:02}:{self._minutes:02}:{self._seconds:02}')
             self._seconds += 1
             self._TimeCounter_Label.after(1000, self._getDisplayTime)
 
@@ -140,7 +140,7 @@ class ScreenRecorder:
     def startup(self):
 
         # Time counter label
-        self._TimeCounter_Label = Label(self._frame, text='Record Time: 00:00:00', font=('Arial', 20, 'bold'), bg="#303F9F", fg="white", width=32)
+        self._TimeCounter_Label = Label(self._frame, text=f'Record Duration: {self._hours:02}:{self._minutes:02}:{self._seconds:02}', font=('Arial', 20, 'bold'), bg="#303F9F", fg="white", width=32)
         self._TimeCounter_Label.grid(row=0, column=0, padx=20, pady=20)
 
           # Record button style
@@ -159,7 +159,7 @@ class ScreenRecorder:
         self._frame_message.pack(fill=X)
 
         # Message label with updated style
-        self._label = Label(self._frame_message, text="Lets Record Your screen", font=('Arial', 14, 'italic'), bg="#0288d1", fg="white")
+        self._label = Label(self._frame_message, text="Lets Record Your screen. Developed By Er. Amar kumar", font=('Arial', 14, 'italic'), bg="#0288d1", fg="white")
         self._label.pack(padx=20, pady=10)
 
         self._window.mainloop()
