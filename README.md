@@ -1,114 +1,131 @@
 # 🎥 Python Screen Recorder App
+### Lightweight desktop screen recording · Python · OpenCV · Multi-threaded · Ubuntu
 
-A lightweight and efficient **desktop screen recording application** built with **Python 3.12**, designed for Ubuntu systems.  
-The app provides a simple GUI to capture screen activity and save recordings locally with minimal configuration.
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python)
+![OpenCV](https://img.shields.io/badge/OpenCV-Video_Capture-5C3EE8?style=flat-square&logo=opencv)
+![Platform](https://img.shields.io/badge/Platform-Ubuntu_Linux-E95420?style=flat-square&logo=ubuntu)
+![GUI](https://img.shields.io/badge/GUI-Tkinter-lightgrey?style=flat-square)
+![License](https://img.shields.io/badge/License-Personal_Use-lightgrey?style=flat-square)
 
----
-
-## 🚀 Overview
-
-This screen recorder application allows users to easily record their screen using a minimal interface.  
-It is ideal for creating tutorials, recording demonstrations, or capturing on-screen activity without relying on heavy third-party software.
-
-The application focuses on **simplicity, performance, and reliability**.
+> A minimal, multi-threaded desktop screen recorder built in Python — no heavy third-party software, no configuration overhead. Start recording in one click, get a timestamped `.avi` file when you stop.
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-- 🖥️ Simple GUI with Start & Stop recording controls
-- 🎬 Smooth screen capture using OpenCV & PyAutoGUI
-- ⏱️ Automatic timestamp-based file naming
-- 📁 Saves recordings in `.avi` format
-- ⚡ Multi-threaded recording for smooth performance
-- 🧠 Accurate time tracking using Python datetime
-
----
-
-## 🛠️ Technology Stack
-
-- **Python 3.12**
-- **Tkinter** – GUI interface
-- **OpenCV** – Video capture & processing
-- **PyAutoGUI** – Screen capture
-- **NumPy** – Frame processing
-- **Threading** – Concurrent recording execution
-- **Datetime** – Timestamp management
+- 🖥️ Simple GUI — Start & Stop recording controls via Tkinter
+- 🎬 Smooth screen capture using OpenCV + PyAutoGUI
+- ⚡ Multi-threaded recording — UI stays responsive during capture
+- ⏱️ Automatic timestamp-based file naming — no manual saving
+- 📁 Output saved as `.avi` — compatible with standard video players
+- 🧠 Accurate time tracking via Python `datetime`
 
 ---
 
-## 🖥️ Supported Platform
+## 🛠️ Tech Stack
 
-- **Ubuntu Linux**
-- Designed to run inside a **Python virtual environment**
+| Tool | Purpose |
+|------|---------|
+| Python 3.12 | Core runtime |
+| Tkinter | GUI — start/stop controls |
+| OpenCV | Video frame capture and encoding |
+| PyAutoGUI | Screen screenshot per frame |
+| NumPy | Frame array processing |
+| Threading | Concurrent recording — non-blocking UI |
+| Datetime | Timestamped output filenames |
 
 ---
 
-## 📂 Project Structure
+## ⚙️ How It Works
 
-```text
-screen-recorder-app/
-├── recorder.py
-├── requirements.txt
-├── README.md
+```
+User clicks Start
+        │
+        ▼
+Background thread launches (non-blocking)
+        │
+        ▼
+PyAutoGUI captures screen → NumPy array → OpenCV encodes frame
+        │
+        ▼
+Frames written to .avi file in real time
+        │
+        ▼
+User clicks Stop → thread joins → file saved with timestamp
 ```
 
-## ⚙️ Installation & Setup
+**Why multi-threading?** Running the capture loop on the main thread would freeze the GUI. A background thread keeps the interface responsive while recording runs continuously in parallel.
 
-###  Clone the Repository
+---
+
+## 🚀 Getting Started
 
 ```bash
-      git clone https://github.com/amarkumar55/Python-Screen-Recorder-App
-      cd Python-Screen-Recorder-App
+# Clone the repository
+git clone https://github.com/amarkumar55/Python-Screen-Recorder-App
+cd Python-Screen-Recorder-App
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+python recorder.py
 ```
-2️
-### Create Virtual Environment
 
-      python3 -m venv venv
-      source venv/bin/activate
-   
-### Install Dependencies
+### Usage
+1. Click **Start Recording** — capture begins immediately
+2. Perform any on-screen activity
+3. Click **Stop Recording** — video saved automatically as `recording_YYYYMMDD_HHMMSS.avi`
 
-     pip install -r requirements.txt
+---
 
-### Run the Application
+## 📁 Project Structure
 
-    python recorder.py
+```
+screen-recorder-app/
+├── recorder.py          # Main app — GUI + recording logic + threading
+├── requirements.txt     # opencv-python, pyautogui, numpy
+└── README.md
+```
 
-📌 How It Works
+---
 
-      Click Start Recording to begin screen capture
-      
-      Perform any on-screen activity
-      
-      Click Stop Recording
-   
-      Video is saved automatically with a timestamped filename
+## 🖥️ Platform
 
-🎯 Use Cases
+- **Ubuntu Linux** — tested on Ubuntu with Python 3.12
+- Runs inside a Python virtual environment
+- No system-level dependencies beyond pip packages
 
-      Creating tutorials
-      
-      Recording demos or presentations
-      
-      Capturing system behavior
-      
-      Educational screen recordings
+---
 
-### Learning Highlights
+## 🌍 Use Cases
 
-      Desktop application development with Python
-      
-      Multi-threaded screen capture
-      
-      OpenCV video processing
-      
-      GUI design with Tkinter
-      
-      Linux-based application setup
+- Creating software tutorials and walkthroughs
+- Recording demos and presentations
+- Capturing system behavior for bug reports
+- Educational screen recordings without third-party tools
 
-### License
+---
 
-     This project is intended for educational and personal use.
+## 🔭 Roadmap
 
-     
+- [ ] Audio recording support (microphone overlay)
+- [ ] MP4 output format (better compression than AVI)
+- [ ] Region selection — record a specific area of the screen
+- [ ] Windows and macOS support
+- [ ] Hotkey support for start/stop without clicking
+
+---
+
+## 👤 Author
+
+**Amar Kumar** — Senior Backend Engineer · IBM Certified AI Engineer  
+📌 [LinkedIn](https://www.linkedin.com/in/amarkumar241429017) · 💻 [GitHub](https://github.com/amarkumar55)
+
+---
+
+*Simple tools built well — multi-threading, clean separation of UI and capture logic, zero external dependencies beyond pip.*
