@@ -121,11 +121,17 @@ screen-recorder-app/
 
 ---
 
-## 👤 Author
 
-**Amar Kumar** — Senior Backend Engineer · IBM Certified AI Engineer  
-📌 [LinkedIn](https://www.linkedin.com/in/amarskdev) · 💻 [GitHub](https://github.com/amarskdev)
+<div align="center">
 
----
+### 👤 About the Author
+
+**Amar Kumar**  
+*Senior Backend Engineer · IBM Certified AI Engineer*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-amarskdev-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amarskdev)
+[![GitHub](https://img.shields.io/badge/GitHub-amarskdev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/amarskdev)
+
+</div>
 
 *Simple tools built well — multi-threading, clean separation of UI and capture logic, zero external dependencies beyond pip.*
