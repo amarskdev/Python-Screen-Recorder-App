@@ -62,7 +62,7 @@ User clicks Stop → thread joins → file saved with timestamp
 
 ```bash
 # Clone the repository
-git clone https://github.com/amarkumar55/Python-Screen-Recorder-App
+git clone https://github.com/amarskdev/Python-Screen-Recorder-App
 cd Python-Screen-Recorder-App
 
 # Create and activate virtual environment
@@ -124,7 +124,7 @@ screen-recorder-app/
 ## 👤 Author
 
 **Amar Kumar** — Senior Backend Engineer · IBM Certified AI Engineer  
-📌 [LinkedIn](https://www.linkedin.com/in/amarkumar241429017) · 💻 [GitHub](https://github.com/amarkumar55)
+📌 [LinkedIn](https://www.linkedin.com/in/amarskdev) · 💻 [GitHub](https://github.com/amarskdev)
 
 ---
 
